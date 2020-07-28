@@ -114,7 +114,17 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
 }
+function primeniFilter(){
+		var kategorija = $("#kategorija").val();
+		var pretraga = $("#pretraga").val();
 
+		$.post( "controller.php?akcija=pretraga", { kategorijaP: kategorija, pretragaP: pretraga })
+		  .done(function( data ) {
+		   $("#svi_proizvodovi").html(data);
+		  });
+
+
+	}
 </script>
 </body>
 </html>
